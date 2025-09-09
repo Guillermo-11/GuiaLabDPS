@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { CameraComponent } from './components/CameraComponent';
 import { AudioRecorder } from './components/AudioRecorder';
+import { VideoPlayer } from './components/VideoPlayer';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -15,6 +16,8 @@ export default function App() {
             iconName = 'camera';
           } else if (route.name === 'Audio Recorder') {
             iconName = 'mic';
+          } else if (route.name === 'Video'){
+            iconName = 'ondemand-video';
           }
 
           return <MaterialIcons name={iconName} size={size} color={color} />;
@@ -30,6 +33,10 @@ export default function App() {
         <Tab.Screen name="Audio Recorder" component={AudioRecorder} options={{
           headerShown: false,
           cardStyle: { backgroundColor: '#000' } //Cambia el color de fondo aquí
+        }} />
+        <Tab.Screen name="Video" component={VideoPlayer} options={{
+          headerShown: false,
+          cardStyle: { backgroundColor: '#027558ff' } //Cambia el color de fondo aquí
         }} />
       </Tab.Navigator>
     </NavigationContainer>
